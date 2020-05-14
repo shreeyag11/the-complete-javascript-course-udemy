@@ -20,5 +20,7 @@ if(johnAvg > mikeAvg && johnAvg > maryAvg)
     console.log("Winner is John's team with an average of "+johnAvg);
 else if(mikeAvg > johnAvg && mikeAvg > maryAvg)
     console.log("Winner is Mike's team with an average of "+mikeAvg);
-else
+else if(maryAvg > johnAvg && maryAvg > mikeAvg)
     console.log("Winner is Mary's team with an average of "+maryAvg);
+else 
+    console.log("It's a draw");
