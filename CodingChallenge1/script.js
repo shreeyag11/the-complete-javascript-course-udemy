@@ -1,5 +1,3 @@
-console.log("I am Working");
-
 var markHeight, markWeight, johnHeight, johnWeight;
 markHeight = prompt("Enter Mark's height");
 markWeight = prompt("Enter Mark's weight");
