@@ -13,29 +13,39 @@
     questionArr.push(new Question('Is JavaScript the best language?',['True','False'],0));
     questionArr.push(new Question('Am I the best?',['True','False','Obviously'],2));
     
-    Question.prototype.randomNumber = function(quesNo) {
+    Question.prototype.randomQ = function(quesNo) {
         console.log(this.question);
         for(var i=0;i<this.answers.length;i++){
             console.log(`${i}: ${this.answers[i]}`);
         }
+        console.log("Enter 'exit' to quit");
         return prompt("Please select the correct answer (Just select the number):");
     }
 
     Question.prototype.isCorrect = function(ans) {
-        if(ans == this.correctAns){
-            console.log('Sahi Jawaab!');
-        }
-        else {
-            console.log(`Oops! Wrong Answer \nThe Correct ans is ${this.correctAns}`);
-        }
-        console.log('Try solving more Questions!');
+            if(ans == this.correctAns){
+                console.log('Sahi Jawaab!');
+                count++;
+            }
+            else {
+                console.log(`Oops! Wrong Answer \nThe Correct ans is ${this.correctAns}`);
+            }
+            console.log(`Total score: ${count}`);
+            console.log('------------------------------------');
     }
     
-    var quesNo = (Math.floor(Math.random() * 6));
+    var count=0;
+    function randomQuestion() {
+        var quesNo = (Math.floor(Math.random() * 6));
  
-    var ans = questionArr[quesNo].randomNumber(quesNo);
-    questionArr[quesNo].isCorrect(ans);
-    
+        var ans = questionArr[quesNo].randomQ(quesNo);
+        if(ans != 'exit'){
+            questionArr[quesNo].isCorrect(ans);
+            randomQuestion();
+        }
+    }
+
+    randomQuestion();
 })();
 
 
